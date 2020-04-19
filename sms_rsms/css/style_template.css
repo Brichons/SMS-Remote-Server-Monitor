@@ -1,0 +1,27 @@
+header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#createuser {
+    text-align: right;
+}
+
+#nouser {
+    text-align: center;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-item a {
+    color: antiquewhite;
+}
+
+.current a {
+    font-weight: bold;
+    color: #0056B3;
+}
