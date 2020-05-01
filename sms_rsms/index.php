@@ -2,12 +2,7 @@
     
     session_start();
 
-    if(isset($_SESSION['userlogin'])) {
-        header("Location: serverdashboard.php");
-    }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,22 +15,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -78,7 +57,7 @@
 							</a>
 						</div>
 					</div>
-						<button class="login100-form-btn btn-lg active" id="login">
+						<button class="login100-form-btn btn-lg active" name="update" id="login">
 							Login
 						</button>
 				</form>
@@ -100,11 +79,13 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: 'jslogin.php',
+                        url: 'login_processor.php',
                         data: {userid: userid, password: password},
                         success: function(data) {
                            if($.trim(data) === "1") {
-                               setTimeout('window.location.href = "serverdashboard.php"', 800);
+                               setTimeout('window.location.href = "admin_dashboard.php"', 0);
+                           } else if($.trim(data) === "2") {
+                               setTimeout('window.location.href = "user_dashboard.php"', 0);
                            } else {
                                Swal.fire({
                                 'title': 'Error!',

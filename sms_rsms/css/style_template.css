@@ -25,3 +25,12 @@ header {
     font-weight: bold;
     color: #0056B3;
 }
+
+.loggedUser {
+    float: left;
+    color: black;
+}
+
+#status {
+    color: green;
+}
